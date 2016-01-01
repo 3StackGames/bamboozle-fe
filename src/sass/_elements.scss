@@ -1,0 +1,27 @@
+.btn-login {
+  display: block;
+  max-width: 300px;
+  width: 100%;
+  margin: 10px auto;
+  padding: 6px 8px;
+  border-radius: 0;
+  background: #2196F3;
+  color: white;
+  font-size: 1.3em;
+  border: none;
+}
+
+.header-logo {
+  text-decoration: none;
+  color: $lightblue;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+a:visited,
+a:focus, {
+  color: $lightblue;
+  text-decoration: none;
+}

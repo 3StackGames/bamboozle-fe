@@ -1,0 +1,128 @@
+.gamepad-page {
+    h1 {
+        padding: 20px 0 0;
+        font-weight: 600;
+        font-size: 3em;
+        color: $blue;
+    }
+
+    .small-header{
+        font-weight: 600;
+        font-size: 2em;
+        color: #424242;
+        padding: 15px 0;
+    }
+
+    .form-control {
+        border-radius: 0;
+        font-size: 1.2em;
+        padding: 9px 15px;
+        height: auto;
+    }
+
+    label {
+        font-weight: 900;
+        padding: 3px 0;
+        font-size: 1.1em;
+        cursor: pointer;
+    }
+
+    .checkbox {
+        &:checked + label {
+            &:hover {
+                &:before {
+                    color: #4CAF50;
+                }
+
+                color: #4CAF50;
+            }
+
+            &:before {
+                color: #4CAF50;
+            }
+
+            color: #4CAF50;
+        }
+
+        & + label {
+            &:hover {
+                &:before {
+                    color: #BDBDBD;
+                }
+
+                color: #0277BD;
+            }
+
+            &:before {
+                content: "\2713";
+                color: #EEEEEE;
+                font-size: 2em;
+                display: inline-block;
+                vertical-align: -5px;
+            }
+
+            font-weight: 600;
+            font-size: 1.8em;
+            color: $lightblue;
+            text-align: left;
+            display: block;
+            cursor: pointer;
+            margin: 0 0 10px;
+        }
+
+        display: none;
+    }
+
+    .btn {
+        &.choiceItems {
+            background: #212121;
+            color: white;
+        }
+
+        &.btn-danger {
+            background: #d9534f;
+        }
+
+        font-weight: 600;
+        font-size: 1.3em;
+        text-align: center;
+        display: block;
+        width: 100%;
+        padding: 9px 0;
+        border-radius: 0;
+        margin: 5px auto;
+        color: white;
+        border: 0;
+        background: $lightblue;
+    }
+
+    .makeUppercase {
+        text-transform: uppercase;
+    }
+
+    .questionTime, .choosingTime {
+        .title {
+            font-weight: 600;
+            font-size: 1.7em;
+            line-height: 170%;
+            color: #424242;
+            padding: 15px 0;
+        }
+    }
+
+    .notice {
+        font-weight: 600;
+        font-size: 1.7em;
+        line-height: 170%;
+        color: #4CAF50;
+        padding: 15px 0;
+    }
+
+    .notice-red {
+        font-weight: 600;
+        font-size: 1.2em;
+        line-height: 170%;
+        color: #F44336;
+        padding: 10px 0;
+    }
+}

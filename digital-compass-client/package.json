@@ -1,0 +1,90 @@
+{
+  "_args": [
+    [
+      "digital-compass-client@^0.5.0",
+      "/Users/arjunsarode/workspace/subtle-scheme/frontend"
+    ]
+  ],
+  "_from": "digital-compass-client@>=0.5.0 <0.6.0",
+  "_id": "digital-compass-client@0.5.0",
+  "_inCache": true,
+  "_location": "/digital-compass-client",
+  "_nodeVersion": "5.0.0",
+  "_npmUser": {
+    "email": "sarodearjun57@gmail.com",
+    "name": "asarode"
+  },
+  "_npmVersion": "3.3.6",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "digital-compass-client",
+    "raw": "digital-compass-client@^0.5.0",
+    "rawSpec": "^0.5.0",
+    "scope": null,
+    "spec": ">=0.5.0 <0.6.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_shasum": "aaea56372c1fbe8c531cbe4c97c810bc440cd58d",
+  "_shrinkwrap": null,
+  "_spec": "digital-compass-client@^0.5.0",
+  "_where": "/Users/arjunsarode/workspace/subtle-scheme/frontend",
+  "author": {
+    "email": "sarodearjun57@gmail.com",
+    "name": "Arjun Sarode",
+    "url": "http://arjunsarode.com"
+  },
+  "bugs": {
+    "url": "https://github.com/3StackGames/digital-compass-client/issues"
+  },
+  "dependencies": {
+    "socket.io-client": "^1.3.6"
+  },
+  "description": "Client side library for building with the Digital Compass framework",
+  "devDependencies": {
+    "babel-cli": "^6.3.17",
+    "babel-preset-es2015": "^6.3.13",
+    "babelify": "^6.2.0"
+  },
+  "directories": {
+    "example": "example"
+  },
+  "dist": {
+    "shasum": "aaea56372c1fbe8c531cbe4c97c810bc440cd58d",
+    "tarball": "http://registry.npmjs.org/digital-compass-client/-/digital-compass-client-0.5.0.tgz"
+  },
+  "gitHead": "ab75637e1592820ae020e4be5d62273fa719341b",
+  "homepage": "https://github.com/3StackGames/digital-compass-client#readme",
+  "installable": true,
+  "keywords": [
+    "framework",
+    "game",
+    "sockets"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "maintainers": [
+    {
+      "name": "asarode",
+      "email": "sarodearjun57@gmail.com"
+    }
+  ],
+  "name": "digital-compass-client",
+  "optionalDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/3StackGames/digital-compass-client.git"
+  },
+  "scripts": {
+    "build": "babel --presets es2015 -d lib/ src/",
+    "build-demo": "cd example && npm install",
+    "demo": "npm run build-demo && NODE_ENV=local npm run open-demo",
+    "demo:firewall": "npm run build-demo && NODE_ENV=jason npm run open-demo",
+    "open-demo": "cd example && npm run client && npm run open",
+    "prepublish": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.5.0"
+}

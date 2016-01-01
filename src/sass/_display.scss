@@ -1,0 +1,450 @@
+.display-page {
+    .toggleSound {
+        span {
+            font-size: 2em;
+            margin: -15px 0 10px 0;
+            text-align: right;
+            cursor: pointer;
+            display: block;
+        }
+    }
+
+    h1 {
+        font-weight: 600;
+        font-size: 5em;
+        color: $blue;
+    }
+
+    h3.title {
+        font-size: 3em;
+        color: #424242;
+        font-weight: 600;
+        padding: 30px 0 50px;
+    }
+
+    .small-header, .showGameCode {
+        font-weight: 600;
+        font-size: 2em;
+        color: #BDBDBD;
+        text-align: right;
+        margin: -60px 0 40px;
+    }
+
+    .showGameCode {
+        span:last-child {
+            font-size: 1.3em;
+        }
+
+        font-size: 1.6em;
+        color: #F44336;
+    }
+
+    .btn {
+        display: block;
+        max-width: 200px;
+        width: 100%;
+        margin: 40px auto 0;
+        padding: 9px 0;
+        background: #2196F3;
+        font-weight: 600;
+        font-size: 1.2em;
+        color: white;
+    }
+
+    .joinNotice {
+        text-align: center;
+        color: #424242;
+        font-weight: 600;
+
+        .title {
+            .gamecode {
+                color: white;
+                background: #F44336;
+                display: inline-block;
+                padding: 4px 10px;
+                margin: 0 0 0 10px;
+            }
+
+            padding: 10px 0 15px;
+            font-size: 3em;
+        }
+
+        .content {
+            .everybody {
+                color: white;
+                background: #212121;
+                vertical-align: center;
+                display: inline-block;
+                padding: 8px 10px;
+                margin: 0 5px;
+                display: inline-block;
+            }
+
+            p {
+                margin-bottom: 15px;
+            }
+
+            font-size: 2em;
+        }
+    }
+
+    .playerColor {
+        .active {
+            &:nth-child(1) .playerLobbyItem {
+                color: #64B5F6;
+                border-color: #64B5F6;
+                background: #BBDEFB;
+            }
+
+            &:nth-child(2) .playerLobbyItem {
+                color: #9575CD;
+                border-color: #9575CD;
+                background: #D1C4E9;
+            }
+
+            &:nth-child(3) .playerLobbyItem {
+                color: #81C784;
+                border-color: #81C784;
+                background: #C8E6C9;
+            }
+
+            &:nth-child(4) .playerLobbyItem {
+                color: #A1887F;
+                border-color: #A1887F;
+                background: #D7CCC8;
+            }
+
+            &:nth-child(5) .playerLobbyItem {
+                color: #F06292;
+                border-color: #F06292;
+                background: #F8BBD0;
+            }
+
+            &:nth-child(6) .playerLobbyItem {
+                color: #FFB74D;
+                border-color: #FFB74D;
+                background: #FFE0B2;
+            }
+
+            &:nth-child(7) .playerLobbyItem {
+                color: #90A4AE;
+                border-color: #90A4AE;
+                background: #CFD8DC;
+            }
+
+            &:nth-child(8) .playerLobbyItem {
+                color: #7986CB;
+                border-color: #7986CB;
+                background: #C5CAE9;
+            }
+        }
+
+        .playerLobbyItem {
+            color: #E0E0E0;
+            background: #EEEEEE;
+            border: 1px solid #E0E0E0;
+        }
+    }
+
+    .playerLobby {
+        .active {
+            .playerLobbyItem {
+                height: 40px;
+                padding: 8px 0 6px;
+            }
+
+            font-size: 0.6em;
+        }
+
+        .playerLobbyItem {
+            display: block;
+            text-align: center;
+            font-size: 3em;
+            margin: 0 0 15px;
+            height: 40px;
+        }
+    }
+
+    .WaitingPlayerLies, .WaitingPlayerChoosing {
+        & > div {
+            display: inline-block;
+            padding: 5px 5px 3px;
+            border-radius: 45px;
+            background: white;
+            border: 1px solid #E0E0E0;
+            margin: 0 15px;
+        }
+
+        .playerLobbyItem {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            background: #F5F5F5;
+            border: 1px solid #E0E0E0;
+        }
+
+        text-align: center;
+    }
+
+    .lyingTime {
+        .progress {
+            .progress-bar {
+                padding-top: 5px;
+                font-size: 1.3em;
+                font-weight: 600;
+            }
+
+            height: 30px;
+            max-width: 600px;
+            width: 100%;
+            margin: 30px auto 0;
+        }
+
+        margin-top: 30px;
+    }
+
+    .relative {
+        position: relative;
+    }
+
+    .finished {
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.8);
+        color: #424242;
+        padding: 13px 0;
+        font-weight: bold;
+        text-align: center;
+        font-size: 2em;
+    }
+
+    .choiceList {
+        .choiceItems {
+            display: flex;
+            display: -webkit-flex;
+            align-items: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            -webkit-justify-content: center;
+            text-align: center;
+            font-size: 23px;
+            margin: 0 0 15px;
+            min-height: 38px;
+            max-height: 61px;
+            overflow: hidden;
+            color: #424242;
+            background: #F5F5F5;
+            border: 1px solid #E0E0E0;
+            padding: 6px;
+            word-wrap: break-word;
+            position: relative;
+
+            & > div {
+                max-width: 100%;
+                overflow: hidden;
+                margin: 6px 0;
+                max-height: 49px;
+            }
+
+            &:after {
+                content: "";
+                display: block;
+                height: 6px;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                background: #F5F5F5;
+                right: 0;
+            }
+        }
+
+        padding: 0 0 30px;
+    }
+
+    @mixin add_player_color($color, $border, $bg) {
+        color: $color;
+        border-color: $border;
+        background: $bg;
+
+        .playerAnswer {
+            background: $bg;
+            border-color: $border;
+
+            &:before {
+                border-right-color: $bg !important;
+            }
+
+            &:after {
+                border-right-color: $border !important;
+            }
+        }
+    }
+
+    .player_1 {
+        @include add_player_color(#64B5F6, #64B5F6, #BBDEFB);
+    }
+
+    .player_2 {
+        @include add_player_color(#9575CD, #9575CD, #D1C4E9);
+    }
+
+    .player_3 {
+        @include add_player_color(#81C784, #81C784, #C8E6C9);
+    }
+
+    .player_4 {
+        @include add_player_color(#A1887F, #A1887F, #D7CCC8);
+    }
+
+    .player_5 {
+        @include add_player_color(#F06292, #F06292, #F8BBD0);
+    }
+
+    .player_6 {
+        @include add_player_color(#FFB74D, #FFB74D, #FFE0B2);
+    }
+
+    .player_7 {
+        @include add_player_color(#90A4AE, #90A4AE, #CFD8DC);
+    }
+
+    .player_8 {
+        @include add_player_color(#7986CB, #7986CB, #C5CAE9);
+    }
+
+    .singleChoice {
+        .showAuthor {
+            padding: 10px 0;
+            color: #424242;
+            font-size: 0.6em;
+        }
+
+        &.answer {
+            .showAuthor {
+                padding: 20px 0 5px;
+            }
+
+            padding: 0
+        }
+
+        display: block;
+        text-align: center;
+        font-size: 3em;
+        margin: 0 0 15px;
+        height: 100px;
+        border: 1px solid;
+        padding: 15px 0 0;
+    }
+
+    .showScrubs {
+        .scrub {
+            font-size: 1.5em;
+            max-width: 170px;
+            width: 100%;
+            text-align: center;
+            padding: 8px 0;
+            border: 1px solid;
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        margin-top: -15px;
+        text-align: center;
+    }
+
+    .scoreBoard {
+        // max-width: 600px;
+        width: 100%;
+        padding: 60px 0 0;
+        margin: 0 auto 0;
+        
+        .playerBoardItemContainer {
+            overflow: hidden;
+        }
+
+        .playerBoardItem {
+            font-size: 2em;
+            font-weight: 600;
+            margin: 0 0 10px;
+            padding: 10px 20px;
+            border: 1px solid;
+            width: 50%;
+            float: left;
+            position: relative;
+
+            .playerAnswer {
+                float: none;
+                width: calc(100% - 10px);
+                padding: 10px 20px;
+                position: absolute;
+                top: -1px;
+                left: 100%;
+                margin-left: 13px;
+                border-width: 1px;
+                border-style: solid;
+                opacity: .7;
+
+                p {
+                    display: block;
+                    max-width: 100%;
+                    white-space: nowrap;
+                    margin: 0;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                &:before,
+                &:after {
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    position: absolute;
+                }
+
+                &:before {
+                    left: -20px;
+                    top: calc(50% - 10px);
+                    border: 10px solid transparent;
+                }
+
+                &:after {
+                    left: -24px;
+                    top: calc(50% - 12px);
+                    border: 12px solid transparent;
+                    z-index: -1;
+                }
+            }
+
+            & > div:not(.clear):not(.playerAnswer) {
+                float: left;
+                width: 50%;
+            }
+
+            .totalPoints {
+                text-align: right;
+            }
+
+        }
+    }
+
+    .to-fool, .for-truth {
+        font-size: 3em;
+        font-weight: 600;
+        padding: 5px 0;
+    }
+
+    .to-fool {
+        color: #F44336;
+    }
+
+    .for-truth {
+        color: #4CAF50;
+    }
+
+    padding: 30px 0 0;
+}
