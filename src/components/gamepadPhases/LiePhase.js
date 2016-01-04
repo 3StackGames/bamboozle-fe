@@ -63,7 +63,7 @@ export default class LiePhase extends Component {
             </div>
           </form>
         </div>
-      );
+      )
     }
 
     return (

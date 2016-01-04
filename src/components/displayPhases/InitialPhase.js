@@ -33,7 +33,9 @@ export default class InitialPhase extends Component {
     const { players = [], gameCode } = this.props.gameState
     return (
       <div>
-        <div className="small-header">Waiting for players ({players.length}/8)...</div>
+        <div className="small-header">
+          <h3 className="text-inverted">Waiting for players ({players.length}/8)...</h3>
+        </div>
         <div className="joinNotice">
           <div className="title">
             The game code is : <div className="gamecode">{gameCode}</div>

@@ -21,10 +21,20 @@ export default class Landing extends Component {
     const { props } = this
 
     return (
-      <div className="index-page">
-        <h1>Bamboozle</h1>
-        <div><Link to="/display" className="btn">Create Room</Link></div>
-        <div><Link to="/gamepad" className="btn">Join Room</Link></div>
+      <div className="Landing">
+        <div className="Landing-content-wrap">
+            <div className="Landing-content">
+              <div className="Landing-header-wrap">
+                <h1><img src="./assets/img/logo.png"/></h1>
+              </div>
+              <div className="Landing-button-wrap">
+                <Link to="/display" className="btn Landing-button">Create Room</Link>
+              </div>
+              <div className="Landing-button-wrap">
+                <Link to="/gamepad" className="btn Landing-button">Join Room</Link>
+              </div>
+            </div>
+        </div>
       </div>
     )
   }

@@ -3,7 +3,7 @@ import objectPath from 'object-path'
 export const GAMEPAD_TOKEN = 'gamepad.token'
 
 export const currentPhase = (gameState, phases) => {
-  const phaseName = objectPath.get(gameState, ['currentPhase', 'phaseName'])
+  const phaseName = gameState.currentPhaseName
   return phases[phaseName || 'InitialPhase']
 }
 

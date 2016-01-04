@@ -8,12 +8,8 @@ export default class LiePhase extends Component {
     super(props)
 
     this.state = {}
-    this.instructionTimeout = () => {
-      setTimeout(() => {
-        props.engine.displayActionComplete({
-          gameCode: props.gameState.gameCode
-        })
-      }, 15000)
+    this.startInstructionTimeout = () => {
+      this.instructionTimeout = setTimeout(this.onInstructionComplete, 15000)
     }
   }
 
@@ -21,9 +17,10 @@ export default class LiePhase extends Component {
     const { gameState, engine } = this.props
     const { gameCode } = gameState
 
-    if (gameState.questionCount > 1) {
-      engine.displayActionComplete({ gameCode })
-      return
+    if (!gameState.displayComplete && !gameState.firstGame) {
+      engine.displayActionComplete({
+        gameCode
+      })
     }
 
     localStorage.setItem('display.gameCode', gameCode);
@@ -41,9 +38,17 @@ export default class LiePhase extends Component {
     )
   }
 
+  @autobind
+  onInstructionComplete() {
+    this.props.engine.displayActionComplete({
+      gameCode: this.props.gameState.gameCode
+    })
+  }
+
   get displayQuestion() {
     const { gameState } = this.props
     const {
+      firstGame,
       displayComplete,
       questionCount,
       players,
@@ -53,14 +58,14 @@ export default class LiePhase extends Component {
     } = gameState
 
 
-    if (questionCount === 1 && !displayComplete) {
-      this.instructionTimeout()
-      console.log(this)
+    if (questionCount === 1 && firstGame  && !displayComplete) {
+      this.startInstructionTimeout()
       return (
         <div>
           <Instructions
             bonusValue={instruction.trickBonusPointValue}
             correctValue={instruction.correctAnswerPointValue} />
+          {this.skipButton}
           <audio src="./assets/sounds/OnIn-1_edit.mp3" autoPlay></audio>
         </div>
       )
@@ -76,6 +81,21 @@ export default class LiePhase extends Component {
       </div>
     )
 
+  }
+
+  get skipButton() {
+    return (
+      <button className="btn" onClick={this.skipInstruction}>Skip</button>
+    )
+  }
+
+  @autobind
+  skipInstruction(e) {
+    e.target.disabled = true
+    clearTimeout(this.instructionTimeout)
+    this.props.engine.displayActionComplete({
+      gameCode: this.props.gameState.gameCode
+    })
   }
 }
 

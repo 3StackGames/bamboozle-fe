@@ -47,7 +47,7 @@ export default class Gamepad extends Component {
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
-              <h1><Link to='/' className='header-logo'>Bamboozle</Link></h1>
+              <h1><Link to='/' className='header-logo'><img src="./assets/img/logo.png"/></Link></h1>
               <div id="gamepad">
                 <CurrentPhase
                   engine={engine}

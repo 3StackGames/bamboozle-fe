@@ -27,12 +27,6 @@ export default class RevealPhase extends Component {
     }
 
     this.moveScreen()
-
-    // this.moveScreen = setInterval(() => {
-    //   this.setState({
-    //     revealing: this.state.revealing + 1
-    //   })
-    // }, 2000)
   }
 
   componentWillUnmount() {
@@ -49,12 +43,14 @@ export default class RevealPhase extends Component {
       players
     } = gameState
 
+    // Showing the final score
     if (!this.emittedDisplay && revealing > this.believedLies.length + 1) {
       this.moveScreen = () => null
       engine.displayActionComplete({ gameCode })
       this.emittedDisplay = true
     }
 
+    // Showing a lie
     if (revealing > this.believedLies.length) {
       return (
         <div>
@@ -65,8 +61,9 @@ export default class RevealPhase extends Component {
       )
     }
 
+    // Showing the correct answer
     if (revealing === this.believedLies.length) {
-      this.timeout = 1000
+      this.timeout = 5000
     }
 
     return (

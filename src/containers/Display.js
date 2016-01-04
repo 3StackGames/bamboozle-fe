@@ -33,14 +33,18 @@ export default class Display extends Component {
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
-              <h1><Link to='/' className='header-logo'>Bamboozle</Link></h1>
+              <h1 className="header"><Link to='/' className='header-logo'><img src="./assets/img/logo.png"/></Link></h1>
               <div id="display">
-                <CurrentPhase engine={engine} gameState={gameState} />
+                {
+                  !gameState.outOfQuestions
+                    ? <CurrentPhase engine={engine} gameState={gameState} />
+                    : ''
+                }
               </div>
             </div>
           </div>
         </div>
-        <audio src="./assets/sounds/Background-2_edit.mp3" autoPlay></audio>
+        <audio src="./assets/sounds/Background-2_edit.mp3" autoPlay loop volume="0"></audio>
       </div>
     )
   }
