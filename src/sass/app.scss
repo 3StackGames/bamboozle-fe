@@ -1,12 +1,19 @@
 html, body {
     height: 100%;
-    background: url(../assets/img/bg.jpg);
     font-family: 'Comic Neue', sans-serif;
     font-size: 12px;
     line-height: 1;
     font-feature-settings: "kern";
     -moz-font-feature-settings: "kern";
     -webkit-font-feature-settings: "kern";
+}
+
+html {
+  background: url(../assets/img/bg.jpg);
+}
+
+body {
+  background: rgba(255, 255, 255, 0.4);
 }
 
 $lightblue: #03A9F4;

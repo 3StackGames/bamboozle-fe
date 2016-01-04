@@ -25,7 +25,7 @@ gulp.task('script', function() {
 
 gulp.task('watch', function() {
   gulp.watch('.env.js', ['script']);
-  gulp.watch('src/**/*.*', ['script']);
+  gulp.watch('src/**/*.js', ['script']);
   gulp.watch('src/sass/**/*.scss', ['sass']);
 });
 
