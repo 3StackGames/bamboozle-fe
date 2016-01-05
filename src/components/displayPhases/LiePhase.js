@@ -40,6 +40,10 @@ export default class LiePhase extends Component {
 
   @autobind
   onInstructionComplete() {
+    if(this.props.gameState.lies.length > 0) {
+      return
+    }
+
     this.props.engine.displayActionComplete({
       gameCode: this.props.gameState.gameCode
     })
