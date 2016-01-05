@@ -7,13 +7,14 @@ import { bindActionCreators } from 'redux'
 import autobind from 'autobind-decorator'
 import engine from '../engine'
 import * as gameStateActs from '../modules/gameState'
-import { displayPhases as phases } from '../components'
+import { displayPhases as phases, MuteButton } from '../components'
 import { currentPhase, bindGameStateDecorator } from '../utils'
-
+import * as musicActs from '../modules/music'
 
 @connect(state => ({
   auth: state.auth,
-  gameState: state.gameState
+  gameState: state.gameState,
+  music: state.music
 }))
 @bindGameStateDecorator(engine)
 export default class Display extends Component {
@@ -22,10 +23,11 @@ export default class Display extends Component {
     this.state = {}
 
     this.gameStateActs = bindActionCreators(gameStateActs, props.dispatch)
+    this.musicActs = bindActionCreators(musicActs, props.dispatch)
   }
 
   render() {
-    const { gameState, auth } = this.props
+    const { gameState, auth, music } = this.props
     const CurrentPhase = currentPhase(gameState, phases)
 
     return (
@@ -33,6 +35,7 @@ export default class Display extends Component {
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
+              <MuteButton music={music} musicActs={this.musicActs} />
               <h1 className="header"><Link to='/' className='header-logo'><img src="./assets/img/logo.png"/></Link></h1>
               <div id="display">
                 {
@@ -44,7 +47,7 @@ export default class Display extends Component {
             </div>
           </div>
         </div>
-        <audio src="./assets/sounds/Background-2_edit.mp3" autoPlay loop volume="0"></audio>
+        <audio src="./assets/sounds/Background-2_edit.mp3" autoPlay loop muted={music.muted} ></audio>
       </div>
     )
   }

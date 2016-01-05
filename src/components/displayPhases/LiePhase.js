@@ -46,7 +46,7 @@ export default class LiePhase extends Component {
   }
 
   get displayQuestion() {
-    const { gameState } = this.props
+    const { gameState, music } = this.props
     const {
       firstGame,
       displayComplete,
