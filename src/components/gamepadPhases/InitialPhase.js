@@ -91,7 +91,7 @@ export default class InitialPhase extends Component {
             <input
               type="text"
               onChange={this.handleGameCodeInput}
-              className="form-control"
+              className="form-control makeUppercase"
               id="gameCode"
               placeholder="gameCode"
               maxLength="4"
