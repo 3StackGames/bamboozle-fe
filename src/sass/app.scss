@@ -64,7 +64,7 @@ $type-color: #000;
   animation: btn-glow 1s alternate infinite ease;
 }
 
-.btn {
+.btn:not(.btn-modal) {
   font-weight: bold;
   display: block;
   max-width: 300px;
@@ -111,10 +111,56 @@ h1, h2, h3 {
   float: right;
 }
 
+.modal-dialog {
+  h3, h4 {
+    margin: 0;
+  }
 
+  h3 {
+    margin-bottom: 10px;
+  }
 
+  .btn {
 
+  }
+}
 
+.ReactModal__Overlay {
+  -webkit-perspective: 600;
+  perspective: 600;
+  opacity: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+  transition: opacity 150ms ease-out;
+}
+
+.ReactModal__Content {
+  -webkit-transform: scale(0.5) rotateX(-30deg);
+}
+
+.ReactModal__Content--after-open {
+  -webkit-transform: scale(1) rotateX(0deg);
+  transition: all 150ms ease-in;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.ReactModal__Content--before-close {
+  -webkit-transform: scale(0.5) rotateX(30deg);
+  transition: all 150ms ease-in;
+}
+
+.ReactModal__Content.modal-dialog {
+  border: none;
+  background-color: transparent;
+}
 
 
 @import "font", "helpers", "index", "gamepad", "display", "elements", "modules";
