@@ -16,7 +16,7 @@ export default class EndPhase extends Component {
     const { gameCode, players } = gameState
 
     return (
-      <div>
+      <div className="endGameDisplay">
         <div className="showGameCode">Game Code: <span>{gameCode}</span></div>
         <h3 className="title">Game Over!</h3>
         <DisplayScore players={players} />
@@ -42,10 +42,11 @@ const DisplayScore = ({ players }) => {
   }
 
   const playerNodes = sortedPlayers.map(player => (
-    <div key={player.displayName} className={"playerBoardItem player_" + playerId(player.displayName)}>
-      <div className="playerName">{ player.displayName }</div>
-      <div className="totalPoints">{ player.score }</div>
-      <div className="clear"></div>
+    <div key={player.displayName} className="playerBoardItemContainer">
+      <div className={"playerBoardItem player_" + playerId(player.displayName)}>
+        <div className="playerName">{player.displayName}</div>
+        <div className="totalPoints">{player.score}</div>
+      </div>
     </div>
   ))
 

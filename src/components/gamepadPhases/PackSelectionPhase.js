@@ -3,6 +3,7 @@ import ReactDOM, { render } from 'react-dom'
 import cx from 'classname'
 import autobind from 'autobind-decorator'
 import R from 'ramda'
+import Loader from '../Loader'
 
 export default class PackSelectionPhase extends Component {
   constructor(props) {
@@ -10,7 +11,8 @@ export default class PackSelectionPhase extends Component {
     this.state = {
       selectedPacks: R.range(0, props.gameState.possiblePacks.length).fill(false),
       includeNsfwQuestions: false,
-      includeUsedQuestions: false
+      includeUsedQuestions: false,
+      loadingButton: false
     }
   }
 
@@ -62,7 +64,7 @@ export default class PackSelectionPhase extends Component {
               onClick={this.submitPacks}
               disabled={!this.isInputValid}
               className="btn">
-              Use Selected Question Packs
+              {this.state.loadingButton ? <Loader/> : 'Use Selected Question Packs'}
             </button>
           </form>
         </div>
@@ -123,6 +125,10 @@ export default class PackSelectionPhase extends Component {
       packs,
       player: currentPlayer.displayName,
       gameCode: gameState.gameCode
+    })
+
+    this.setState({
+      loadingButton: true
     })
   }
 }

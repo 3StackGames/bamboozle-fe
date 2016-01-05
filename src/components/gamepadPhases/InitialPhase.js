@@ -4,6 +4,7 @@ import cx from 'classname'
 import autobind from 'autobind-decorator'
 import objectPath from 'object-path'
 import { fetchLocalToken } from '../../utils'
+import Loader from '../Loader'
 
 export default class InitialPhase extends Component {
   constructor(props) {
@@ -16,6 +17,11 @@ export default class InitialPhase extends Component {
       errors: {
         nickname: true,
         gameCode: true
+      },
+      loader: {
+        enter: false,
+        login: false,
+        everyoneIsIn: false
       }
     }
   }
@@ -95,7 +101,7 @@ export default class InitialPhase extends Component {
               disabled={!this.isInputValid}
               onClick={this.handlePlayerJoin}
               className="btn">
-              Enter
+              {this.state.loader.enter ? <Loader/> : 'Enter'}
             </button>
           </div>
         </form>
@@ -196,7 +202,7 @@ export default class InitialPhase extends Component {
 
   get everyoneIsInButton() {
     if (this.props.gameState.players[0].displayName === this.props.currentPlayer.displayName) {
-      return <button onClick={this.everyoneIsIn} className="btn">EVERYONE IS IN</button>;
+      return <button onClick={this.everyoneIsIn} className="btn">{this.state.loader.everyoneIsIn ? <Loader/> : 'EVERYONE IS IN'}</button>;
     }
   }
 
@@ -204,6 +210,13 @@ export default class InitialPhase extends Component {
   everyoneIsIn(e) {
     e.target.disabled = true
     this.props.engine.beginGame()
+
+    this.setState({
+      loader: {
+        ...this.state.loader,
+        everyoneIsIn: true
+      }
+    })
   }
 
   @autobind
@@ -275,6 +288,13 @@ export default class InitialPhase extends Component {
       gameCode: gameCode.toUpperCase(),
       accountName: auth.username,
       displayName: nickname
+    })
+
+    this.setState({
+      loader: {
+        ...this.state.loader,
+        enter: true
+      }
     })
   }
 
