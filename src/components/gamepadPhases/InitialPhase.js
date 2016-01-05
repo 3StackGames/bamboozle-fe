@@ -22,7 +22,8 @@ export default class InitialPhase extends Component {
         enter: false,
         login: false,
         everyoneIsIn: false
-      }
+      },
+      isCreatingAccount: false 
     }
   }
 
@@ -152,7 +153,7 @@ export default class InitialPhase extends Component {
           </div>
           <div className="form-group">
             <label>
-              <input type="checkbox" onChange={this.handleCreateToggle}/> Create new account
+              <input type="checkbox" onChange={this.handleCreateToggle} checked={this.state.isCreatingAccount}/> Create new account
             </label>
           </div>
         </form>
@@ -198,6 +199,9 @@ export default class InitialPhase extends Component {
   @autobind
   handleLogout(e) {
     this.props.authActs.logout()
+    this.setState({
+
+    })
   }
 
   get everyoneIsInButton() {

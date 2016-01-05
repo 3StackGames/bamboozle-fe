@@ -1,5 +1,6 @@
 import request from 'superagent-bluebird-promise'
 import jwt from 'jsonwebtoken'
+import config from '../../.env'
 
 const CREATE_REQUEST = 'subtle-scheme/auth/CREATE_REQUEST'
 const CREATE_SUCCESS = 'subtle-scheme/auth/CREATE_SUCCESS'
@@ -128,57 +129,47 @@ export const createAccount = (username, password) => dispatch => {
   dispatch(authRequest())
 
   request
-    .post('http://localhost:3000/api/v1/users/create')
+    .post(`${config.webserverUrl}/api/v1/users/create`)
     .type('application/json')
     .send({
       username,
       password
     })
     .then(res => {
-      // Hack for API errors
-      if (!res.body.success) {
-        dispatch(authFail(res.body))
-      } else {
-        request
-          .post('http://localhost:3000/api/v1/authenticate/login')
-          .type('application/json')
-          .send({
-            username,
-            password
-          })
-          .then(res => {
-            const { token } = res.body
-            processToken(token, dispatch)
-          })
-      }
+      request
+        .post(`${config.webserverUrl}/api/v1/authenticate/login`)
+        .type('application/json')
+        .send({
+          username,
+          password
+        })
+        .then(res => {
+          const { token } = res.body
+          processToken(token, dispatch)
+        })
     })
-    // .catch(err => {
-    //   dispatch(authFail(err))
-    // })
+    .catch(err => {
+      dispatch(authFail(err.body))
+    })
 }
 
 export const login = (username, password) => dispatch => {
   dispatch(authRequest())
 
   request
-    .post('http://localhost:3000/api/v1/authenticate/login')
+    .post(`${config.webserverUrl}/api/v1/authenticate/login`)
     .type('application/json')
     .send({
       username,
       password
     })
     .then(res => {
-      // Hack for API errors
-      if (!res.body.success) {
-        dispatch(authFail(res.body))
-      } else {
-        const { token } = res.body
-        processToken(token, dispatch)
-      }
+      const { token } = res.body
+      processToken(token, dispatch)
     })
-    // .catch(err => {
-    //   dispatch(authFail(err))
-    // })
+    .catch(err => {
+      dispatch(authFail(err.body))
+    })
 }
 
 export const localLogin = (token) => {
