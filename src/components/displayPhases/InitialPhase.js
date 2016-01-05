@@ -101,6 +101,9 @@ export default class InitialPhase extends Component {
           </div>
           <DisplayLobby players={players} />
         </div>
+        <div>
+          <img src="/dist/assets/img/bamboozle-demo-popup.png" alt="bamboozle demo" className="img-responsive"/>
+        </div>
       </div>
     )
   }

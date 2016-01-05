@@ -23,3 +23,49 @@
     //     font-size: 1.3em;
     // }
 }
+
+.join-room-graphic {
+    background: url('../assets/img/join-xs.png') no-repeat center;
+    width: 484px;
+    max-width: 100%;
+    height: 413px;
+    display: block;
+    margin: 30px auto 100px;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+    background-size: contain;
+
+    @media(min-width: 768px) {
+        margin-bottom: 0;
+        background-image: url('../assets/img/join-sm.png');
+    }
+
+    @media(min-width: 992px) {
+        background-image: url('../assets/img/join-md.png');
+    }
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.create-room-graphic {
+    background: url('../assets/img/display.png') no-repeat center;
+    width: 484px;
+    max-width: 100%;
+    height: 303px;
+    margin: 30px auto 0;
+    display: block;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+    background-size: contain;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.img-responsive {
+    margin-left: auto;
+    margin-right: auto;
+}

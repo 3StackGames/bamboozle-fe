@@ -24,6 +24,9 @@ export default class App extends Component {
             : ''
         }
         {props.children}
+        <div className="stack-container">
+          <a href="http://3stack.io" target="_blank"></a>
+        </div>
       </div>
     )
   }

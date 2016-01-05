@@ -25,13 +25,19 @@ export default class Landing extends Component {
         <div className="Landing-content-wrap">
             <div className="Landing-content">
               <div className="Landing-header-wrap">
-                <h1><img src="./assets/img/logo.png"/></h1>
+                <h1><img src="./dist/assets/img/logo.png"/></h1>
               </div>
-              <div className="Landing-button-wrap">
-                <Link to="/display" className="btn Landing-button">Create Room</Link>
-              </div>
-              <div className="Landing-button-wrap">
-                <Link to="/gamepad" className="btn Landing-button">Join Room</Link>
+              <div className="row">
+                <div className="col-xs-12 col-sm-6 col-sm-push-6">
+                  <div className="Landing-button-wrap">
+                    <Link to="/gamepad" className="join-room-graphic" />
+                  </div>
+                </div>
+                <div className="col-xs-12 col-sm-6 col-sm-pull-6">
+                  <div className="Landing-button-wrap">
+                    <Link to="/display" className="create-room-graphic" />
+                  </div>
+                </div>
               </div>
             </div>
         </div>

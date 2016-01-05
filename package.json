@@ -10,7 +10,7 @@
     "stylus": "stylus -u autoprefixer-stylus --watch --prefix 'ts-' 'src/stylus/index.styl' --out 'src/index.css'",
     "sass": "node-sass --output-style compressed 'src/sass/app.scss' --output 'dist/css'",
     "sass:watch": "node-sass --watch --output-style compressed 'src/sass/app.scss' --output 'dist/css'",
-    "assets": "cp -r assets/ dist/assets/"
+    "assets": "mkdir -p dist && cp -r assets/ dist"
   },
   "author": "Arjun Sarode <sarodearjun57@gmail.com> (http://arjun.ink/)",
   "license": "MIT",

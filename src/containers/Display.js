@@ -44,7 +44,7 @@ export default class Display extends Component {
           <div className="row">
             <div className="col-xs-12">
               <MuteButton music={music} musicActs={this.musicActs} />
-              <h1 className="header"><Link to='/' className='header-logo'><img src="./assets/img/logo.png"/></Link></h1>
+              <h1 className="header"><Link to='/' className='header-logo'><img src="./assets/img/logo-b.png"/></Link></h1>
               <div id="display">
                 {
                   !gameState.outOfQuestions
