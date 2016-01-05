@@ -46,7 +46,7 @@ export default class LiePhase extends Component {
   }
 
   get displayQuestion() {
-    const { gameState, music } = this.props
+    const { gameState, musicActs } = this.props
     const {
       firstGame,
       displayComplete,
@@ -66,7 +66,7 @@ export default class LiePhase extends Component {
             bonusValue={instruction.trickBonusPointValue}
             correctValue={instruction.correctAnswerPointValue} />
           {this.skipButton}
-          <audio src="./assets/sounds/OnIn-1_edit.mp3" autoPlay></audio>
+          <audio src="./assets/sounds/OnIn-1_edit.mp3" autoPlay onPlay={musicActs.lowerVolume} onEnded={musicActs.raiseVolume}></audio>
         </div>
       )
     }
@@ -77,7 +77,7 @@ export default class LiePhase extends Component {
           <h3 className="title">{currentQuestion.question}</h3>
           <WaitingPlayerLies players={players} lies={lies}/>
         </div>
-        <audio src={`./assets/sounds/ss-${currentQuestion.id}_edit.mp3`} autoPlay></audio>
+        <audio src={`./assets/sounds/ss-${currentQuestion.id}_edit.mp3`} autoPlay onPlay={musicActs.lowerVolume} onEnded={musicActs.raiseVolume}></audio>
       </div>
     )
 

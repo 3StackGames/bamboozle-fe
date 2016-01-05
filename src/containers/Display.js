@@ -26,6 +26,14 @@ export default class Display extends Component {
     this.musicActs = bindActionCreators(musicActs, props.dispatch)
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.music.changeVolume) {
+      this.refs.backgroundMusic.volume = .2;
+    } else {
+      this.refs.backgroundMusic.volume = 1;
+    }
+  }
+
   render() {
     const { gameState, auth, music } = this.props
     const CurrentPhase = currentPhase(gameState, phases)
@@ -40,14 +48,14 @@ export default class Display extends Component {
               <div id="display">
                 {
                   !gameState.outOfQuestions
-                    ? <CurrentPhase engine={engine} gameState={gameState} />
+                    ? <CurrentPhase engine={engine} gameState={gameState} musicActs={this.musicActs} />
                     : ''
                 }
               </div>
             </div>
           </div>
         </div>
-        <audio src="./assets/sounds/Background-2_edit.mp3" autoPlay loop muted={music.muted} ></audio>
+        <audio src="./assets/sounds/Background-2_edit.mp3" ref="backgroundMusic" autoPlay loop muted={music.muted} volume={music.changeVolume ? 0.2 : 1.0} ></audio>
       </div>
     )
   }
