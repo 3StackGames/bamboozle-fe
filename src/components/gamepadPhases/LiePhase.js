@@ -95,11 +95,13 @@ export default class LiePhase extends Component {
     e.target.disabled = true
 
     let msg = null
-    const answer = currentQuestion.answer
+    const answers = currentQuestion.answers
 
     const clean = (input) => input.toLowerCase().replace(/\s/g, '')
     const cleanLie = clean(lie)
-    const cleanAnswer = clean(answer)
+    const answerExists = Boolean(answers
+      .map(answer => clean(answer))
+      .find(answer => answer === cleanLie))
     const lieExists = Boolean(otherLies
       .map(other => clean(other.lie))
       .find(otherLie => otherLie === cleanLie))
@@ -107,10 +109,9 @@ export default class LiePhase extends Component {
     if (lie.length === 0) {
       msg = "Enter a lie!"
     }
-    else if (clean(lie) === clean(answer) || lieExists) {
+    else if (answerExists || lieExists) {
       msg = "You picked either someone else's lie or the truth! Please enter something else."
     }
-
 
     this.setState({
       alert: msg
