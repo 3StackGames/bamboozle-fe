@@ -95,7 +95,8 @@ export default class InitialPhase extends Component {
               id="gameCode"
               placeholder="gameCode"
               maxLength="4"
-              size="4" />
+              size="4"
+              autoComplete="off" />
           </div>
           <div className="form-group">
             <button
