@@ -6,6 +6,7 @@ html, body {
     font-feature-settings: "kern";
     -moz-font-feature-settings: "kern";
     -webkit-font-feature-settings: "kern";
+    overflow-x: hidden;
 }
 
 html {
@@ -234,7 +235,7 @@ h1, h2, h3 {
 }
 
 .fb-like.fb_iframe_widget {
-  position: absolute;
+  position: fixed;
   left: 60px;
   bottom: 18px;
   z-index: 1;
