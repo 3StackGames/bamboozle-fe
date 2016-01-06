@@ -28,6 +28,14 @@ export default class Landing extends Component {
                 <h1><img src="./dist/assets/img/logo.png"/></h1>
               </div>
               <div className="row">
+                <div className="col-xs-12">
+                  <ol className="instruction">
+                    <li>Create a room. This is where the questions will show up</li>
+                    <li>Join a room using a phone or a tablet</li>
+                  </ol>
+                </div>
+              </div>
+              <div className="row">
                 <div className="col-xs-12 col-sm-6 col-sm-push-6">
                   <div className="Landing-button-wrap">
                     <Link to="/gamepad" className="join-room-graphic" />
