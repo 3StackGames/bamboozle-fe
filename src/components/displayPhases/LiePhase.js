@@ -16,7 +16,7 @@ export default class LiePhase extends Component {
     this.startInstructionTimeout = () => {
       this.instructionTimeout = setTimeout(() => {
         if(!this.stopInstructionTimeout) {
-          this.onInstructionComplete
+          this.onInstructionComplete()
         }
       }, 15000)
     }
