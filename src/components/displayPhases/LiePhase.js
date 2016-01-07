@@ -7,9 +7,24 @@ export default class LiePhase extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {}
+    this.state = {
+      timer: 40
+    }
+
+    this.stopInstructionTimeout = false
+
     this.startInstructionTimeout = () => {
-      this.instructionTimeout = setTimeout(this.onInstructionComplete, 15000)
+      this.instructionTimeout = setTimeout(() => {
+        if(!this.stopInstructionTimeout) {
+          this.onInstructionComplete
+        }
+      }, 15000)
+    }
+
+    this.countDownInterval = false
+
+    this.startCountDown = () => {
+      this.countDownInterval = setInterval(this.countDown, 1000)
     }
   }
 
@@ -29,10 +44,25 @@ export default class LiePhase extends Component {
 
   render() {
     const { gameState } = this.props
+    const { timer } = this.state
+
+    const percent = timer / 40 * 100
+    let displayCountDown
+
+    if(this.countDownInterval !== false) {
+      displayCountDown = (
+        <div className="gameTimer"><div className={cx({
+          countDown: true,
+          'countDown--yellow': percent <= 60 && percent > 30,
+          'countDown--red': percent <= 30
+        })} style={{ width: `${percent}%` }}></div></div>
+      );
+    }
 
     return (
       <div>
         <div className="showGameCode">Game Code: <span>{ gameState.gameCode }</span></div>
+        {displayCountDown}
         {this.displayQuestion}
       </div>
     )
@@ -47,6 +77,20 @@ export default class LiePhase extends Component {
     this.props.engine.displayActionComplete({
       gameCode: this.props.gameState.gameCode
     })
+  }
+
+  @autobind
+  countDown() {
+    const timer = this.state.timer
+    if(timer <= 0) {
+      clearInterval(this.countDownInterval)
+      this.props.engine.displayActionComplete({
+        gameCode: this.props.gameState.gameCode
+      })
+      return
+    }
+    
+    this.setState({timer: timer - 1})
   }
 
   get displayQuestion() {
@@ -75,6 +119,10 @@ export default class LiePhase extends Component {
       )
     }
 
+    if(gameState.players.length - gameState.lies.length <= 2 && this.countDownInterval == false) {
+      this.startCountDown()
+    }
+
     return (
       <div>
         <div className="lyingTime">
@@ -96,7 +144,8 @@ export default class LiePhase extends Component {
   @autobind
   skipInstruction(e) {
     e.target.disabled = true
-    clearTimeout(this.instructionTimeout)
+    this.stopInstructionTimeout = true
+
     this.props.engine.displayActionComplete({
       gameCode: this.props.gameState.gameCode
     })
