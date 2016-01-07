@@ -42,6 +42,12 @@ export default class LiePhase extends Component {
     localStorage.setItem('display.timestamp', +new Date);
   }
 
+  componentWillUnmount() {
+    if(this.countDownInterval !== false) {
+      clearInterval(this.countDownInterval)
+    }
+  }
+
   render() {
     const { gameState } = this.props
     const { timer } = this.state
