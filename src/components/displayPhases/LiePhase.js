@@ -125,7 +125,7 @@ export default class LiePhase extends Component {
       )
     }
 
-    if(gameState.players.length - gameState.lies.length <= 2 && this.countDownInterval == false) {
+    if(gameState.players.length - gameState.lies.length <= 2 && this.countDownInterval == false && gameState.players.length > 2) {
       this.startCountDown()
     }
 

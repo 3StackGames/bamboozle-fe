@@ -44,7 +44,7 @@ export default class VotePhase extends Component {
       );
     }
 
-    if(gameState.players.length - sumVoted <= 2 && this.countDownInterval == false) {
+    if(gameState.players.length - sumVoted <= 2 && this.countDownInterval == false && gameState.players.length > 2) {
       this.startCountDown()
     }
 
