@@ -21,6 +21,12 @@ export default class VotePhase extends Component {
     }
   }
 
+  componentWillUnmount() {
+    if(this.countDownInterval !== false) {
+      clearInterval(this.countDownInterval)
+    }
+  }
+
   render() {
     const { gameState } = this.props
     const { timer } = this.state
